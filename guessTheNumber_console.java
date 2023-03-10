@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.lang.Math;
+import java.util.Random;
 
 public class guessTheNumber_console 
 {
@@ -7,7 +8,7 @@ public class guessTheNumber_console
 
     public static void main(String[] args) 
     {
-        guessTheNumber classObj = new guessTheNumber();
+        guessTheNumber_console classObj = new guessTheNumber_console();
         classObj.runGame();
     }
 
@@ -37,7 +38,7 @@ public class guessTheNumber_console
                     System.out.print("Enter the Upper Range : ");
                     level( lowerRange , new Scanner(System.in).nextInt());
                     break;
-            case 0: System.out(0);
+            case 0: System.exit(0);
                     return;
             default: System.out.println("Invalid Choice !\n");
                     runGame();
@@ -47,14 +48,14 @@ public class guessTheNumber_console
 
     private int calculatePoints( int n ) 
     { 
-        return Math.ceil( n / Math.sqrt(n) ); 
+        return (int) Math.ceil( n / Math.sqrt(n) ); 
     }
 
     private void level( int lowerLimit, int upperLimit ) 
     {
         int generatedNumber = new Random().nextInt( upperLimit - lowerLimit + 1 ) + lowerLimit, 
             guessedNumber = upperLimit + 100 ;
-        int totalAttempts = (int) Math.ceil( 0.2 * Math.sqrt( upperRange + Math.abs( lowerRange ) ) );
+        int totalAttempts = (int) Math.ceil( 0.2 * Math.sqrt( upperLimit + Math.abs( lowerLimit ) ) );
         totalAttempts += Math.abs( totalAttempts - 3 ) < 8 ? Math.abs( totalAttempts - 3 ) : 0;
         System.out.print("Hey Player, A number has been generated between " 
                          + lowerLimit + " and " + upperLimit + ",\nAnd you've got " 
