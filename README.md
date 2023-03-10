@@ -21,4 +21,4 @@ further incorporate details are:
 > Giving points based on the number of attempts.
 
 
-// a Number Guessing Game made with Java
+conclusion : a Number Guessing Game made with Java
